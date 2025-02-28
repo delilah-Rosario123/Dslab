@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+// Iterative Linear Search Function
+int iterativeLinearSearch(int arr[], int size, int target) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == target)
+            return i; // Element found, return index
+    }
+    return -1; // Element not found
+}
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50, 60, 70}; // Array elements
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int target;
+
+    cout << "Enter the element to search: ";
+    cin >> target;
+
+    int result = iterativeLinearSearch(arr, size, target);
+
+    if (result != -1)
+        cout << "Element found at index: " << result << endl;
+    else
+        cout << "Element not found in the array." << endl;
+
+    return 0;
+}
