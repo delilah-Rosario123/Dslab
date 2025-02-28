@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// Function to implement Brute Force String Matching
+void bruteForceStringMatch(string text, string pattern) {
+    int n = text.length();
+    int m = pattern.length();
+    bool found = false;
+
+    // Loop through the text
+    for (int i = 0; i <= n - m; i++) {
+        int j;
+
+        // Check for pattern match
+        for (j = 0; j < m; j++) {
+            if (text[i + j] != pattern[j])
+                break;
+        }
+
+        // If pattern is found
+        if (j == m) {
+            cout << "Pattern found at index: " << i << endl;
+            found = true;
+        }
+    }
+
+    if (!found) {
+        cout << "Pattern not found!" << endl;
+    }
+}
+
+int main() {
+    string text, pattern;
+
+    cout << "Enter the text: ";
+    getline(cin, text);
+    cout << "Enter the pattern: ";
+    getline(cin, pattern);
+
+    bruteForceStringMatch(text, pattern);
+
+    return 0;
+}
